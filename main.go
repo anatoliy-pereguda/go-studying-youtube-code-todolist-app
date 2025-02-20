@@ -1,8 +1,3 @@
-# GO YouTube Code TodoList App  
-Go free YouTube Code from [TechWorld with Nana]( https://www.youtube.com/watch?v=XCZWyN9ZbEQ)  
-
-## First sketch  
-```
 package main
 
 import "fmt"
@@ -32,6 +27,3 @@ func main() {
 	fmt.Println("My Projects")
 	fmt.Println(fullGolang)
 }
-```
-
-
