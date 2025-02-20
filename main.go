@@ -1,28 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-	fmt.Println("##### Welcome to ToDoList App! #####")
 
-	var shortGolang = "Watch GO Crash Course"
-	var fullGolang = "Watch Nana's Golang Full Course"
-	var rewardDessert = "Reward myself with a Cheesecake"
-	var taskItems = []string{shortGolang, fullGolang, rewardDessert}
-
-	printTasks(taskItems)
-	fmt.Println()
-	taskItems = addTask(taskItems, "Go for a run")
-	taskItems = addTask(taskItems, "Practice coding in Go")
-	fmt.Println("Updated list")
-	printTasks(taskItems)
+	http.HandleFunc("/", helloUser)
+	http.HandleFunc("/show-task", show-task)
+	http.ListenAndServe(":8080", nil)
 }
 
-func printTasks(taskItems []string) {
-	fmt.Println("### List of my ToDos ###")
-	for index, task := range taskItems {
-		fmt.Printf("%d. %s\n", index+1, task)
-	}
+func helloUser(writer http.ResponseWriter, request *http.Request) {
+	var greeting = "Hello, User! Welcome to ToDoList App!"
+	fmt.Println(writer, greeting)
 }
 
 func addTask(taskItems []string, newTask string) []string {
