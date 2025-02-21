@@ -5,19 +5,24 @@ import (
 	"net/http"
 )
 
-func main() {
+var shortGolang = "Watch Go crash course"
+var fullGolang = "Watch Nana's Golang Full Course"
+var rewardDessert = "Reward myself with a donut"
+var taskItems = []string{shortGolang, fullGolang, rewardDessert}
 
+func main() {
 	http.HandleFunc("/", helloUser)
-	http.HandleFunc("/show-task", show-task)
+	http.HandleFunc("/show-tasks", showTasks)
 	http.ListenAndServe(":8080", nil)
 }
 
-func helloUser(writer http.ResponseWriter, request *http.Request) {
-	var greeting = "Hello, User! Welcome to ToDoList App!"
-	fmt.Println(writer, greeting)
+func showTasks(writer http.ResponseWriter, request *http.Request) {
+	for _, task := range taskItems {
+		fmt.Fprintln(writer, task)
+	}
 }
 
-func addTask(taskItems []string, newTask string) []string {
-	var updatedTaskItems = append(taskItems, newTask)
-	return updatedTaskItems
+func helloUser(writer http.ResponseWriter, request *http.Request) {
+	var greeting = "Hello user. Welcome to our Todolist App!"
+	fmt.Fprintln(writer, greeting)
 }
