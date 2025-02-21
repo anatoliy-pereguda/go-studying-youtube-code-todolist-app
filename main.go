@@ -17,12 +17,14 @@ func main() {
 }
 
 func showTasks(writer http.ResponseWriter, request *http.Request) {
+	fmt.Fprintf(writer, "<h1>Tasks:</h1><ul>")
 	for _, task := range taskItems {
-		fmt.Fprintln(writer, task)
+		fmt.Fprintf(writer, "<li>%s</li>", task)
 	}
+	fmt.Fprintf(writer, "</ul>")
 }
 
 func helloUser(writer http.ResponseWriter, request *http.Request) {
-	var greeting = "Hello user. Welcome to our Todolist App!"
-	fmt.Fprintln(writer, greeting)
+	var greeting = "Hello user. Welcome to our ToDoList App!"
+	fmt.Fprintf(writer, "<h1>%s</h1>", greeting)
 }
